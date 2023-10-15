@@ -37,31 +37,37 @@ var message = "Hello, $(firstName) $(lastName)!";
 Console.write(message); // Hello, Barack Obama!
 ```
 ## Variables
-Variables are used to store the date in the program, there are 2 types of variables in Shard.
-| varaible | explanation |
+There are 3 types of variables in Shard.
+| variable | explanation |
 | -------- | ----------- |
 | var | value can be changed anywhere |
-| const | value can be changed only in constructor |
+| immut | value can be changed only in constructor |
+| const | variable is compile time and value cant be changed  |
 
-full declaration
+Usage & declaration
 ```cs
 // [variable] [name]: [type] = [value]
-var fif: int32 = 10;
-const kafif: str = "kafif";
+var coins: i32 = 10;
+coins++;
+
+immut input: str = Console.read();
+
+const PI: flt = 3.145;
 ```
-default value
+Default value
 ```cs
 // [variable] [name]: [type]
 var stringDefault: str; // value = "";
-const intDefault: int32; // value = 0;
+var intDefault: i32; // value = 0;
+var boolDefault: bool; // value = false;
 ```
-Note that a variable must necessarily define a type or value.
+Constants cannot be with default value!
 ## Type inference
 Always specifying a type for a variable or an argument can be inconvenient and mess up the code, so Shard supports type inference.
 ```cs
-var variable = 10; // type = int32
-var variable = "Hello World!"; // type = str
-var variable = true; // type = bool
+var variable = 10; // type = i32
+immut variable = "Hello World!"; // type = str
+const variable = true; // type = bool
 ```
 To infer floating-point types, you must use the appropriate token for the type at the end of the number.
 | type | token |
@@ -70,9 +76,9 @@ To infer floating-point types, you must use the appropriate token for the type a
 | dob | `d` |
 | dec | `m` |
 ```cs
-var variable = 10.5; // type = flt because flt is the default type for floating point numbers
+var variable = 10.5; // type = flt because its the default type for floating point numbers
 
-var variable = 10; // type = int32
+var variable = 10; // type = i32
 var variable = 10f; // type = flt
 var variable = 10d; // type = dob
 var variable = 10m; // type = dec
@@ -111,6 +117,7 @@ fun sqrt(input: flt): flt {
   return input ** 0.5;
 }
 ```
+## Inlined functions
 Functions in Shard can also be inlined
 ```cs
 Console.write(sqrt(9)); // 3
@@ -136,35 +143,4 @@ array.sort((a, b) => {
   // logic goes here
 });
 ```
-# Classes
-# Objects
-In c#, if you need to create a simple container for variables to conveniently pass them as an argument, you need to create a large structure, Shard takes it to a more convenient level with objects.
-```cs
-object NoiseSettings {
-}
-```
-# If else statement
-```cs
-if gray && orangeEyes {
-  cat = "gosha";
-} 
-else if brown && greenEyes {
-  cat = "shotya";
-}
-else {
-  cat = "undefined";
-}
-```
-### Switch statement
-```cs
-switch colorIdx {
-  case 0:
-    outputColor = "red";
-  case 1:
-    outputColor = "green";
-  case 2:
-    outputColor = "blue";
-  default:
-    outputColor = "undefined";
-}
-```
+# Namespace
