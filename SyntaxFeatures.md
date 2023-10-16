@@ -132,3 +132,44 @@ log(sqrt(9)); // 3
 fun sqrt(flt input) => input ** 0.5; // returns float
 fun log(str message) => Console.write(message); // returns void
 ```
+## Syntax: Arrays
+```cs
+var fruits: str[] = ["apple", "banana", "orange"];
+// or with type inference
+var fruits = ["apple", "banana", "orange"];
+```
+There are some built in functions for arrays
+```cs
+array.removeAll(element); // removes every occurrence of the specified element in an array
+array.removeFirst(element); // removes first occurrence of the specified element in an array
+array.removeLast(element); // removes last occurrence of the specified element in an array
+
+array.push(element); // adds element to the end of an array
+array.pop(); // removes and returns last element of an array
+
+array.push(index, element); // inserts element at the given index
+array.pop(index); // removes at the given index
+```
+## Feature: Array addition
+In Shard, you can use the + operator to concatenate arrays or add elements to an array.
+```cs
+[1, 2] + [3, 4]   // [1, 2, 3, 4]
+[1, 2] + 3        // [1, 2, 3]
+3 + [1, 2]        // [3, 1, 2]
+```
+## Feature: Negative indexing
+When you need to get the last element in an array, you usually write something like this:
+```cs
+var array = [1, 2, 3, 4, 5];
+var last = array[array.length - 1];
+
+Console.write(last); // 5
+```
+This can be inconvenient and ugly, so thats why Shard has negative indexing.
+```cs
+var array = [1, 2, 3, 4, 5];
+var last = array[-1];
+
+Console.write(last); // 5
+```
+## Feature: Array slicing
