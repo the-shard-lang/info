@@ -173,3 +173,7 @@ var last = array[-1];
 Console.write(last); // 5
 ```
 ## Feature: Array slicing
+Works just like in python
+```cs
+
+```
